@@ -1,20 +1,16 @@
-var express = require("express");
-var path = require("path");
+// Dependancies
+const express = require("express");
+const path = require("path");
 
-var app = express();
-var PORT =  process.env.PORT || 3000;
+// Starts the app and assigns a PORT
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
+// Sets up middleware to parse data
+app.use(express.urlencoded({ extended }));
 app.use(express.json());
 
-const Notes = [
-    {
-        Name: "Test",
-        Text: "This is the text inside notes itself"
-    }
-]
-
-
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
-  });
+app.get('/', (req, res,)=>
+{
+    res.send("Hello you found the home page!")
+});
