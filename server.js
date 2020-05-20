@@ -3,7 +3,6 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 
-
 const app = express();
 const PORT = process.env.PORT || 3300;
 
@@ -35,6 +34,7 @@ app.get('/api/notes', (req, res) =>
         if(err) throw err;
     });
 });
+
 app.post('/api/notes', (req, res) =>
 {
     fs.readFile(path.join(__dirname, 'db/db.json'), (err, data)=>
